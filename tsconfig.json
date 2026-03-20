@@ -1,7 +1,30 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [ "DOM", "DOM.Iterable", "ESNext" ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    "jsx": "react-jsx",
+
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    "types": [ "jest", "node" ]
+  },
+  "include": [ "src" ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/setupTests.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }

@@ -1,73 +1,126 @@
-# React + TypeScript + Vite
+﻿# 🧪 Incubyte Frontend Engineering Kata – Pokémon App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Live Demo
 
-Currently, two official plugins are available:
+👉 Add your deployed link here (e.g., Vercel)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*Add screenshots of:*
 
-## Expanding the ESLint configuration
+* Pokémon List Page
+* Search Filtering
+* Pokémon Detail Page
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧩 Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Pokémon Listing Page
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Displays list of Pokémon from API
+* Search/filter functionality
+* Responsive UI
+
+### 2. Pokémon Detail Page
+
+* Shows detailed Pokémon information
+* Handles loading and error states
+
+---
+
+## 🧪 Test-Driven Development (TDD)
+
+This project strictly follows the **TDD approach**:
+
+* 🔴 Red → Wrote failing tests first
+* 🟢 Green → Implemented minimal code to pass
+* 🔵 Refactor → Improved code quality
+
+Commit history reflects this workflow clearly.
+
+### ✅ Test Coverage Includes:
+
+* Loading state
+* Successful API response
+* Error handling
+* Search/filter functionality
+* Routing & detail page rendering
+
+---
+
+## 🏗️ Architecture
+
+* **React + TypeScript**
+* **Component-based design**
+* **Custom hooks for data fetching**
+* **Separation of concerns:**
+
+  * API layer
+  * Hooks
+  * UI components
+
+---
+
+## ⚙️ Tech Stack
+
+* React
+* React Router
+* Jest + React Testing Library
+* Fetch API
+
+---
+
+## ⚖️ Trade-offs & Decisions
+
+* Chose **Fetch API** instead of external libraries to demonstrate core async handling
+* Avoided state libraries (Redux/React Query) for simplicity and clarity
+* Basic UI to prioritize functionality and testability
+
+---
+
+## 🤖 AI Usage (Important)
+
+AI tools (ChatGPT) were used for:
+
+* Project scaffolding
+* Writing initial test cases
+* Structuring components and hooks
+* Debugging Jest + TypeScript configuration
+
+All generated code was:
+
+* Reviewed manually
+* Refactored for clarity and correctness
+
+---
+
+## 📦 Setup Instructions
+
+```bash
+# Clone the repo
+git clone https://github.com/poojakhot4u/pokemon-demo.git
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Run tests
+npm run test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌍 Deployment
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application is deployed using:
+
+* Vercel 
+
+---
+
+## 🧠

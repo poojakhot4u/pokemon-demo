@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/api/pokemonapi.ts","./src/components/pokemoncard.tsx","./src/hooks/usepokemondetail.ts","./src/hooks/usepokemonlist.ts","./src/pages/pokemondetail.tsx","./src/pages/pokemonlist.tsx"],"version":"5.9.3"}
