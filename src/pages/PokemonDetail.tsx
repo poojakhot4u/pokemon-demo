@@ -1,22 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { usePokemonDetail } from "../hooks/usePokemonDetail";
 
 export default function PokemonDetail() {
   const { name } = useParams();
-  const [data, setData] = useState<any>(null);
+  const { data, loading, error } = usePokemonDetail(name!);
 
-  useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      .then((res) => res.json())
-      .then(setData);
-  }, [name]);
-
-  if (!data) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
 
   return (
     <div>
       <h1>{data.name}</h1>
       <p>Height: {data.height}</p>
+      <p>Weight: {data.weight}</p>
     </div>
   );
 }
