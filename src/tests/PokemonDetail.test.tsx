@@ -3,8 +3,7 @@ import { render, screen } from "@testing-library/react";
 import PokemonDetail from "../pages/PokemonDetail";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 
-global.fetch = jest.fn();
-
+(globalThis.fetch as jest.Mock)
 describe("PokemonDetail", () => {
   beforeEach(() => {
     jest.clearAllMocks();
