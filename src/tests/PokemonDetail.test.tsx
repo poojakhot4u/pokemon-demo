@@ -1,14 +1,15 @@
-import "@testing-library/jest-dom";
+﻿import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import PokemonDetail from "../pages/PokemonDetail";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 
-(globalThis.fetch as jest.Mock)
-describe("PokemonDetail", () => {
+(globalThis as any).fetch = jest.fn();
+
+const mockFetch = globalThis.fetch as jest.Mock;describe("PokemonDetail", () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    (global.fetch as jest.Mock).mockResolvedValue({
+    mockFetch.mockResolvedValue({
       ok: true,
       json: async () => ({
         name: "pikachu",
