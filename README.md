@@ -2,8 +2,7 @@
 
 ## 🚀 Live Demo
 
-👉 Add your deployed link here (e.g., Vercel)
-
+👉 https://pokemon-demo-sigma.vercel.app/
 ---
 
 ## 📸 Screenshots
