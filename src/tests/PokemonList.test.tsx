@@ -1,6 +1,8 @@
+import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import PokemonList from "../pages/PokemonList";
 import * as api from "../api/pokemonApi";
+import { BrowserRouter } from "react-router-dom";
 
 jest.mock("../api/pokemonApi");
 
@@ -13,17 +15,38 @@ const mockData = {
 
 describe("PokemonList", () => {
   beforeEach(() => {
-    jest.spyOn(api, "fetchPokemonList").mockResolvedValue(mockData as any);
+    jest.clearAllMocks();
+    (api.fetchPokemonList as jest.Mock).mockResolvedValue(mockData);
+  });
+
+  test("renders loading initially", () => {
+    render(
+      <BrowserRouter>
+        <PokemonList />
+      </BrowserRouter>
+    );
+
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
   test("renders pokemon list", async () => {
-    render(<PokemonList />);
-    const items = await screen.findAllByTestId("pokemon-card");
-  expect(items.length).toBeGreaterThan(0);
+    render(
+      <BrowserRouter>
+        <PokemonList />
+      </BrowserRouter>
+    );
+
+    expect(await screen.findByText("pikachu")).toBeInTheDocument();
+    expect(await screen.findByText("bulbasaur")).toBeInTheDocument();
   });
 
-  test("filters pokemon", async () => {
-    render(<PokemonList />);
+  test("filters pokemon based on search", async () => {
+    render(
+      <BrowserRouter>
+        <PokemonList />
+      </BrowserRouter>
+    );
+
     await screen.findByText("pikachu");
 
     const input = screen.getByPlaceholderText(/search/i);
@@ -33,13 +56,17 @@ describe("PokemonList", () => {
     expect(screen.queryByText("bulbasaur")).not.toBeInTheDocument();
   });
 
-  test("shows error", async () => {
-    jest
-      .spyOn(api, "fetchPokemonList")
-      .mockRejectedValueOnce(new Error("error"));
+  test("shows error state", async () => {
+    (api.fetchPokemonList as jest.Mock).mockRejectedValueOnce(
+      new Error("error")
+    );
 
-    render(<PokemonList />);
-    const err = await screen.findByText(/error/i);
-    expect(err).toBeInTheDocument();
+    render(
+      <BrowserRouter>
+        <PokemonList />
+      </BrowserRouter>
+    );
+
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
   });
 });
